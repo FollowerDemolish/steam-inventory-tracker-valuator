@@ -1,0 +1,9 @@
+node_modules/
+dist/
+data/
+.env
+.env.*
+*.log
+Glasscase Data/
+assets/shots/
+smoke-output/

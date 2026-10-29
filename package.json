@@ -1,0 +1,101 @@
+{
+  "name": "glasscase",
+  "productName": "Glasscase",
+  "version": "2.3.41",
+  "description": "A portable desktop app that values a Steam account and inventory, with honest floor and sales-average prices.",
+  "type": "module",
+  "main": "src/main/main.js",
+  "author": "FollowerDemolish",
+  "license": "MIT",
+  "homepage": "https://github.com/FollowerDemolish/steam-inventory-tracker-valuator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FollowerDemolish/steam-inventory-tracker-valuator.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "electron .",
+    "demo": "electron . --demo",
+    "test": "node --test \"test/*.test.js\"",
+    "smoke": "electron . --smoke --no-sandbox --disable-gpu",
+    "shots": "electron . --shots --no-sandbox --disable-gpu",
+    "gifs": "electron . --record --no-sandbox",
+    "assets": "electron scripts/render-assets.mjs --no-sandbox",
+    "build": "electron-builder --linux AppImage --win portable --publish never",
+    "build:linux": "electron-builder --linux AppImage --publish never",
+    "build:win": "electron-builder --win portable --publish never"
+  },
+  "devDependencies": {
+    "electron": "45.1.0",
+    "electron-builder": "26.18.0",
+    "gifenc": "1.0.3"
+  },
+  "build": {
+    "appId": "io.github.owner.glasscase",
+    "productName": "Glasscase",
+    "copyright": "Copyright (c) 2026 FollowerDemolish",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "src/**/*",
+      "package.json",
+      "LICENSE"
+    ],
+    "asar": true,
+    "artifactName": "${productName}-${version}-${os}-${arch}.${ext}",
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable-x64.${ext}"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "category": "Utility",
+      "synopsis": "Value a Steam account and inventory, honestly.",
+      "executableName": "glasscase",
+      "syncDesktopName": true
+    },
+    "appImage": {
+      "artifactName": "${productName}-${version}-x86_64.${ext}"
+    },
+    "mac": {
+      "target": [
+        "zip"
+      ],
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.png"
+    }
+  },
+  "keywords": [
+    "steam",
+    "inventory",
+    "cs2",
+    "dota2",
+    "skins",
+    "electron",
+    "portfolio"
+  ],
+  "desktopName": "glasscase.desktop"
+}

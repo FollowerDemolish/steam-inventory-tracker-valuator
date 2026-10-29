@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Tests and smoke run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Install Electron runtime libs
+        run: sudo apt-get update && sudo apt-get install -y libgl1 libegl1 libvulkan1 libgtk-3-0 libnss3 libasound2t64
+      - name: Smoke run (offline demo under Xvfb)
+        run: xvfb-run -a -s "-screen 0 1280x900x24" npm run smoke
+
+  build:
+    name: Build (${{ matrix.target }})
+    needs: test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            target: win
+            files: dist/*.exe
+          - os: ubuntu-latest
+            target: linux
+            files: dist/*.AppImage
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build:${{ matrix.target }}
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+      - uses: actions/upload-artifact@v4
+        with:
+          name: glasscase-${{ matrix.target }}
+          path: ${{ matrix.files }}
+          if-no-files-found: error
+          retention-days: 14

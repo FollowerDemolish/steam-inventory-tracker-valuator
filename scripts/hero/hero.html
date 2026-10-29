@@ -1,0 +1,93 @@
+<!doctype html>
+<!-- README hero banner. Rendered to assets/hero.png by `npm run assets`. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Glasscase hero</title>
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        src: url('../../src/renderer/fonts/InterVariable.woff2') format('woff2');
+        font-weight: 100 900;
+      }
+      html, body { margin: 0; width: 1600px; height: 560px; overflow: hidden; }
+      body {
+        font-family: 'Inter', sans-serif;
+        font-optical-sizing: auto;
+        -webkit-font-smoothing: antialiased;
+        color: #f1f6fc;
+        background:
+          radial-gradient(900px 420px at 50% -8%, rgba(26, 159, 255, 0.34), transparent 70%),
+          radial-gradient(700px 400px at 8% 110%, rgba(120, 90, 255, 0.16), transparent 70%),
+          radial-gradient(700px 400px at 94% 108%, rgba(102, 192, 244, 0.14), transparent 70%),
+          linear-gradient(180deg, #0b1828 0%, #08111b 60%, #060c14 100%);
+        position: relative;
+      }
+      .seam {
+        position: absolute; left: 28%; right: 28%; top: 18px; height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(190, 230, 255, 0.95), transparent);
+        box-shadow: 0 0 40px 6px rgba(102, 192, 244, 0.45);
+      }
+      .frame {
+        position: absolute; inset: 18px; border-radius: 34px;
+        box-shadow: inset 0 0 0 1px rgba(170, 205, 240, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .top { position: absolute; top: 66px; left: 0; right: 0; display: grid; justify-items: center; gap: 18px; }
+      .brand { display: flex; align-items: center; gap: 22px; }
+      .brand img { width: 92px; height: 92px; filter: drop-shadow(0 16px 36px rgba(26, 159, 255, 0.45)); }
+      .brand h1 { margin: 0; font-size: 92px; font-weight: 760; letter-spacing: -0.04em; line-height: 1; }
+      .tag { margin: 0; font-size: 28px; color: #a9bacb; letter-spacing: -0.01em; }
+      .chips { display: flex; gap: 12px; margin-top: 10px; }
+      .chip {
+        display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 16px 0 8px;
+        border-radius: 14px; font-size: 17px; color: #cdd9e5;
+        background: rgba(20, 35, 53, 0.66); box-shadow: inset 0 0 0 1px rgba(170, 205, 240, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+      .m { height: 28px; padding: 0 10px; border-radius: 8px; display: grid; place-items: center; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; }
+      .m.low { color: #cfe9ff; background: rgba(102, 192, 244, 0.18); box-shadow: inset 0 0 0 1px rgba(102, 192, 244, 0.32); }
+      .m.avg { color: #e2d9ff; background: rgba(180, 156, 255, 0.16); box-shadow: inset 0 0 0 1px rgba(180, 156, 255, 0.32); }
+      .m.ins { color: #ffe6bd; background: rgba(255, 193, 99, 0.15); box-shadow: inset 0 0 0 1px rgba(255, 193, 99, 0.32); }
+      .shelf { position: absolute; left: 0; right: 0; bottom: 52px; display: flex; justify-content: center; gap: 22px; align-items: flex-end; }
+      .piece { position: relative; width: 186px; height: 150px; display: grid; place-items: end center; padding-bottom: 12px; box-sizing: border-box; }
+      .piece::before {
+        content: ''; position: absolute; left: 6px; right: 6px; bottom: 0; height: 60px; border-radius: 50%;
+        background: radial-gradient(closest-side, color-mix(in srgb, var(--rarity) 60%, transparent), transparent);
+        filter: blur(8px);
+      }
+      .piece::after {
+        content: ''; position: absolute; left: 20px; right: 20px; bottom: 0; height: 3px; border-radius: 3px;
+        background: var(--rarity); box-shadow: 0 0 18px 2px var(--rarity);
+      }
+      .piece img { position: relative; width: 178px; max-height: 136px; object-fit: contain; filter: drop-shadow(0 16px 16px rgba(0, 0, 0, 0.6)); }
+      .glass {
+        position: absolute; left: 120px; right: 120px; bottom: 50px; height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(170, 205, 240, 0.35), transparent);
+      }
+      .fade { position: absolute; left: 0; right: 0; bottom: 0; height: 58px; background: linear-gradient(180deg, transparent, rgba(6, 12, 20, 0.6)); }
+    </style>
+  </head>
+  <body>
+    <div class="seam"></div>
+    <div class="frame"></div>
+    <div class="top">
+      <div class="brand"><img src="../../src/renderer/img/icon.svg" alt="" /><h1>Glasscase</h1></div>
+      <p class="tag">The honest value of a Steam inventory, on your desktop.</p>
+      <div class="chips">
+        <span class="chip"><span class="m low">LOWEST</span>the live floor</span>
+        <span class="chip"><span class="m avg">AVG</span>the average of real sales</span>
+        <span class="chip"><span class="m ins">INSTANT</span>what buy orders pay now</span>
+      </div>
+    </div>
+    <div class="glass"></div>
+    <div class="shelf">
+        <div class="piece" style="--rarity:#eb4b4b"><img src="https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL8ypexwjFS4_ega6F_H_OGMWrEwL9lj_F7Rienhgk1tjyIpYPwJiPTcAAoCpsiEO5ZsUbpm9C2Zuni4VHW3o5EzSX62HxP7Sg96-hWVqYi_6TJz1aW0nxrkGs/256fx256f" alt="" /></div>
+        <div class="piece" style="--rarity:#e4ae39"><img src="https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5T441rsfhr9kYDl7h1I4_utY5t-LvGYC3SbyOBJp-lgWyyMmBgjuiiI1Nv_d33BaQUjA8MmF-QCskbswdTvY7_q7leNiN0Rnyz-3y4f6HxvsL4cEf1yOUfFUFk/256fx256f" alt="" /></div>
+        <div class="piece" style="--rarity:#eb4b4b"><img src="https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwiYbf_jdk7uW-V6V-Kf2cGFidxOp_pewnF3nhxEt0sGnSzN76dH3GOg9xC8FyEORftRe-x9PuYurq71bW3d8UnjK-0H0YSTpMGQ/256fx256f" alt="" /></div>
+        <div class="piece" style="--rarity:#e4ae39"><img src="https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL6kJ_m-B1Q7uCvZaZkNM-SA1iUzv5mvOR7cDm7lA4i4AKJk4jxNWWebgAlA8dwQLMOshmwm9y0Puni5Qba3ohEni-r33xA7X5o4uZTV6ch5OSJ2C8W7sST/256fx256f" alt="" /></div>
+        <div class="piece" style="--rarity:#eb4b4b"><img src="https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLkjYbf7itX6vytbbZSI-WsG3SA_uV_vO1WTCa9kxQ1vjiBpYPwJiPTcFB2Xpp5TO5cskG9lYCxZu_jsVCL3o4Xnij23ClO5ik9tegFA_It8qHJz1aWe-uc160/256fx256f" alt="" /></div>
+        <div class="piece" style="--rarity:#8847ff"><img src="https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyL1m5fn8Sdk7vORbqhsLfWAMWuZxuZi_uI_TX6wxxkjsGXXnImsJ37COlUoWcByEOMOtxa5kdXmNu3htVPZjN1bjXKpkHLRfQU/256fx256f" alt="" /></div>
+        <div class="piece" style="--rarity:#d32ce6"><img src="https://community.fastly.steamstatic.com/economy/image/i0CoZ81Ui0m-9KwlBY1L_18myuGuq1wfhWSaZgMttyVfPaERSR0Wqmu7LAocGIGz3UqlXOLrxM-vMGmW8VNxu5Dx60noTyLwlcK3wiFO0POlPPNSI_-RHGavzOtyufRkASq2lkxx4W-HnNyqJC3FZwYoC5p0Q7FfthW6wdWxPu-371Pdit5HnyXgznQeHYY5wyA/256fx256f" alt="" /></div>
+    </div>
+    <div class="fade"></div>
+  </body>
+</html>

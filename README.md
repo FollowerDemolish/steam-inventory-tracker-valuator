@@ -164,12 +164,11 @@ On a server, only the offline demo and data you already have in the cache work r
 
 | Build | File |
 | --- | --- |
-| Windows 10/11 (x64) | [`steam-inventory-tracker-valuator.zip`](https://github.com/FollowerDemolish/steam-inventory-tracker-valuator/releases/latest/download/steam-inventory-tracker-valuator.zip) |
+| Windows 10/11 (x64) | [`Glasscase-2.3.43-portable-x64.exe`](https://github.com/FollowerDemolish/steam-inventory-tracker-valuator/releases/latest/download/Glasscase-2.3.43-portable-x64.exe) |
 
-Unpack the whole folder and start `Main.exe`. No installer, no admin rights.
+Download and start the exe. No installer, no admin rights.
 
-`Main.exe` is code-signed, so Windows starts it without a warning. Keep
-`Glasscase` next to it: they ship together.
+The build is not code-signed yet, so SmartScreen may warn once: choose **More info**, then **Run anyway**.
 
 Double-click the `.exe` and Glasscase opens — nothing is installed, no Node.js, no npm, no Git needed. The build keeps its data in a `Glasscase Data` folder next to itself, so you can carry it on a USB stick.
 
